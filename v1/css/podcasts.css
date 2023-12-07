@@ -1,0 +1,38 @@
+/*####################################################*/
+/* -------------- START - Main Content -------------- */
+
+.podcasts__desc {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    text-align: justify;
+    width: 70%;
+}
+
+.podcasts__top--actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+}
+
+.podcasts__top__picture {
+    position: absolute;
+    right: 0;
+    filter: brightness(0.5);
+    z-index: -1;
+}
+
+@media screen and (max-width: 650px) {
+    .podcasts__desc {
+        text-align: left;
+    }
+    .nav__link {
+        font-size: 14px !important;
+        padding: 8px 20px !important;
+        text-align: center;
+    }
+
+    .btn__shuffle--text {
+        display: none;
+    }
+}

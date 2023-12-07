@@ -1,0 +1,78 @@
+@use "../abstract/mixins" as m;
+
+.language-picker {
+    @include m.d-flex($ai: center, $g: var(--space-350));
+    background-color: var(--clr-gray-700);
+    border: 1px solid var(--clr-gray-400);
+    border-radius: 8px;
+    padding: 10px 15px;
+    position: relative;
+    transition: background-color 0.5s ease-in-out;
+    i {
+        font-size: var(--text-400);
+    }
+    &:hover {
+        background-color: var(--clr-gray-600);
+        cursor: pointer;
+    }
+    &:focus {
+        background-color: var(--clr-gray-500);
+    }
+    &__menu {
+        // TURN OFF FOR VUE APPROACH
+        // display: none;
+        // opacity: 0;
+        // visibility: hidden;
+        position: absolute;
+        bottom: -160px;
+        left: 0;
+        flex-direction: column;
+        justify-content: space-around;
+        z-index: 999;
+        transform: translateY(-220px);
+        background-color: var(--clr-gray-700);
+        li {
+            transition: background-color 0.2s ease-out;
+            &:first-child {
+                padding-top: var(--space-400);
+            }
+            padding: var(--space-400) var(--space-550) var(--space-400) var(--space-450);
+            &:hover {
+                color: var(--clr-primary-100);
+                background-color: var(--clr-gray-500);
+                cursor: pointer;
+            }
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--clr-gray-500);
+            }
+        }
+    }
+}
+
+.show__language__menu {
+    animation: show__language__menu 0.5s ease-in-out forwards;
+    @keyframes show__language__menu {
+        0% {
+            opacity: 0;
+            visibility: hidden;
+        }
+        100% {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.hide__language__menu {
+    animation: hide__language__menu 0.5s ease-in-out forwards;
+    @keyframes hide__language__menu {
+        0% {
+            opacity: 1;
+            visibility: visible;
+        }
+        100% {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+}

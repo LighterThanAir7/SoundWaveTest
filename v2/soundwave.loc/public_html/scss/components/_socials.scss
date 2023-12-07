@@ -1,0 +1,41 @@
+@use '../abstract/mixins' as m;
+
+.socials {
+    @include m.d-flex($jc: center, $g: var(--space-600));
+    i {
+        font-size: var(--text-450);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+}
+
+.icon-facebook {
+    &:hover {
+        color: #4267B2;
+    }
+}
+.icon-twitter {
+    &:hover {
+        color: #1DA1F2;
+    }
+}
+.icon-instagram {
+    &:hover {
+        color: #C13584;
+    }
+}
+.icon-youtube {
+    &:hover {
+        color: #FF0000;
+    }
+}
+.icon-tiktok {
+    &:hover {
+        color: #FF0050;
+    }
+}
+.icon-apple {
+    &:hover {
+        color: #c8c8c8;
+    }
+}

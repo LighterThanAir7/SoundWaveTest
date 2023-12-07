@@ -1,0 +1,13 @@
+@use '../abstract/mixins' as m;
+
+.nav__logo {
+    @include m.d-flex($ai: center, $g: var(--space-350));
+    font-size: var(--text-500);
+    i {
+        font-size: var(--text-700);
+    }
+    transition: color 0.5s ease-in-out;
+    &:hover {
+        color: var(--clr-primary-100);
+    }
+}

@@ -1,0 +1,90 @@
+@use '../abstract/mixins' as m;
+
+.player-lyrics {
+    background: var(--clr-gray-800) linear-gradient(90deg, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0.73) 100%);
+    position: absolute;
+    content: '';
+    left: 100%;
+    top: -1px;
+    border-radius: 8px;
+    border: 1px solid var(--clr-primary-100);
+    transition: 1s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    &.show {
+        visibility: visible;
+        opacity: 1;
+    }
+    &:hover {
+        box-shadow: 0 0 15px 3px var(--clr-primary-900);
+    }
+    &__header {
+        @include m.d-flex($jc: space-between, $ai: center);
+        padding: var(--space-150) var(--space-250) 0;
+        margin-bottom: var(--space-150);
+        width: 100%;
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            transform: translateY(25px);
+            height: 1px;
+            width: 100%;
+            background-color: var(--clr-primary-100);
+        }
+        i:hover {
+            cursor: pointer;
+        }
+    }
+    &__title {
+        @include m.font-style("Montserrat-SemiBold", var(--text-300), var(--clr-primary-100));
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+    }
+    &__area {
+        padding: var(--space-350) var(--space-600);
+        position: relative;
+        scroll-behavior: smooth;
+        overflow-y: scroll;
+        scrollbar-width: thin;
+        scrollbar-color: var(--clr-primary-100) var(--clr-primary-900);
+        ::-webkit-scrollbar {
+            width: 2px;
+        }
+        height: 470px;
+
+        pre {
+            @include m.font-style("Montserrat-Medium", var(--text-300));
+            color: var(--clr-white);
+            text-align: center;
+            line-height: 1.35;
+        }
+    }
+    &__fade-in {
+        position: absolute;
+        width: 100%;
+        height: 170px;
+        left: 0;
+        top: 52px;
+        background: linear-gradient(
+            // var(--clr-primary-800) 0%,
+            rgba(0,0,0,1) 0%,
+            rgba(0,0,0,0) 100%
+        );
+        z-index: 999;
+    }
+    &__fade-out {
+        position: absolute;
+        width: 100%;
+        height: 170px;
+        left: 0;
+        bottom: 0;
+        background: linear-gradient(
+            rgba(0,0,0,0) 0%,
+            rgba(0,0,0,1) 100%
+            // var(--clr-primary-900) 100%
+        );
+        z-index: 999;
+    }
+}

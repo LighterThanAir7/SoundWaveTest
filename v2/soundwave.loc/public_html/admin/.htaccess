@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^api/(.*)$ /admin/api/API.php?request=$1 [QSA]
+
+# php_value  session.auto_start on
+# php_value  session.save_path  "/home/swapps/jadrolinija.swapps.eu/admin/session"
+# php_value  session.cookie_secure  false
+php_value post_max_size 10M
+php_value upload_max_filesize 10M

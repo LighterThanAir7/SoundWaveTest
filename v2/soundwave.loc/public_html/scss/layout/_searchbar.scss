@@ -1,0 +1,57 @@
+@use '../abstract/mixins' as m;
+@use "../abstract/colors" as c;
+
+.searchbar {
+    @include m.d-flex($jc: space-between, $ai: center);
+    background-color: var(--clr-gray-900);
+    border-bottom: 1px solid var(--clr-primary-300);
+    width: calc(100% - 300px);
+    position: fixed;
+    right: 0;
+    z-index: 2;
+    padding: var(--space-150) var(--space-450);
+    box-shadow: inset 0 0 50px 3px var(--clr-primary-900);
+    transition: 1s ease-in-out;
+    &__form {
+        @include m.d-flex($ai: center, $g: var(--space-400));
+        i {
+            cursor: pointer;
+            &:nth-of-type(2) {
+                display: none;
+                transition: opacity 300ms ease-in-out;;
+                opacity: 0;
+            }
+            &.focused {
+                display: block;
+                opacity: 1;
+            }
+        }
+    }
+    &__text {
+        @include m.font-style("Montserrat-Light", var(--text-300), var(--clr-white-200));
+        width: 30vw;
+        padding: 0.5rem;
+        border-radius: 8px;
+        transition: background-color 300ms ease-in-out;
+        &:hover {
+            background-color: rgb(157, 253, 255, 0.1);
+        }
+        &:focus {
+            background-color: rgb(157, 253, 255, 0.25);
+        }
+        &::placeholder {
+            @include m.font-style("Montserrat-Light", var(--text-300), var(--clr-white-200));
+        }
+    }
+    &__profile-icon {
+        width: 40px;
+        border-radius: 50%;
+    }
+    &__right {
+        @include m.d-flex($jc: space-between, $ai: center);
+        i {
+            font-size: var(--text-350);
+            margin-right: var(--space-350);
+        }
+    }
+}

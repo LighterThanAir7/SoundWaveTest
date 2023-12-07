@@ -1,0 +1,28 @@
+@use '../abstract/colors' as c;
+
+.bg-main {
+    background-image:
+            url("../img/backgrounds/main-bg-grayscale.png"),
+            linear-gradient(45deg, var(--clr-primary-800) , var(--clr-gray-800));
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.bg-warm {
+    background-image: url("../img/backgrounds/main-bg-opacity-0.4.png");
+    background-size: cover;
+}
+
+.bg-dots {
+    background-image: url("../img/backgrounds/dots-combined.png");
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.bg-dots-gradient {
+    background-image:
+            url("../img/backgrounds/bg-container-3-black-dots.png"),
+            linear-gradient(45deg, var(--clr-primary-700) , var(--clr-secondary-700));
+    background-size: cover;
+    min-height: 100vh;
+}

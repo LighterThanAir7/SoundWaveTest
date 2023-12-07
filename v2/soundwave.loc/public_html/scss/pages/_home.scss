@@ -1,0 +1,101 @@
+@use '../abstract/mixins' as m;
+
+.welcome {
+    &-wrapper {
+        @include m.d-flex($jc: space-between, $ai: center);
+        margin-bottom: var(--space-800);
+    }
+    max-width: 1000px;
+    text-shadow: var(--clr-gray-900);
+    &__description  {
+        @include m.font-style("Montserrat-Medium", var(--text-400));
+        margin-bottom: var(--space-500);
+    }
+    img {
+        margin-bottom: var(--space-700);
+    }
+    &__cta {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--space-800);
+        &-text {
+            @include m.font-style("Montserrat-Medium", var(--text-400), var(--clr-primary-100));
+            margin-right: 4rem;
+            position: relative;
+            &::before {
+                content: "";
+                height: 10px;
+                width: 130px;
+                position: absolute;
+                left: -150px;
+                top: 10px;
+                margin-right: 20px;
+                background: var(--clr-primary-100);
+            }
+        }
+        & .btn {
+            font-size: var(--text-350);
+        }
+    }
+    &__music-player {
+        height: 450px;
+        transition: all 0.5s ease;
+        &:hover {
+            transform: scale(1.10);
+        }
+        &:first-child {
+            display: none;
+        }
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+        &--small {
+            height: 400px;
+            padding-bottom: 1.25rem;
+        }
+    }
+}
+
+.soundwave {
+    width: 50%;
+}
+
+.one-liner {
+    &-container {
+        @include m.d-flex($jc: space-between, $ai: center);
+        padding-bottom: var(--space-650);
+    }
+    @include m.font-style("Montserrat-Regular", var(--text-600));
+    letter-spacing: 0.625rem;
+    text-transform: uppercase;
+    position: relative;
+    animation: fadeIn 3s ease-in infinite alternate;
+    &::after {
+        content: "";
+        height: 4px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 50px;
+        background: linear-gradient(
+            to right,
+            #01D2BC 4.74%,
+            #2A5060 20.66%,
+            #817FF9 46.58%,
+            #FFBFD7 71.6%,
+            #F80A84 100%
+        );
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}

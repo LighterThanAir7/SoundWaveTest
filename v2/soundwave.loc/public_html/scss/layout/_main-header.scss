@@ -1,0 +1,23 @@
+@use '../abstract/mixins' as m;
+
+.main-header {
+    &__description {
+        width: 70%;
+        line-height: 1.25;
+        margin-bottom: var(--space-500);
+    }
+    & .icon-shuffle {
+        @include m.d-flex($jc: center, $ai: center);
+        background-color: transparent;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        transition: 0.25s ease-out;
+        font-size: var(--text-500);
+        &:hover {
+            background-color: var(--clr-primary-700);
+            cursor: pointer;
+            color: var(--clr-primary-100);
+        }
+    }
+}

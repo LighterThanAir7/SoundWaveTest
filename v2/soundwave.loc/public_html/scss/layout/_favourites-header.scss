@@ -1,0 +1,79 @@
+@use '../abstract/mixins' as m;
+
+.favourites {
+    &__header {
+        @include m.d-flex($jc: space-between, $ai: center);
+        width: 100%;
+    }
+    &__profile-name {
+        @include m.font-style("Montserrat-SemiBold", var(--text-400));
+        margin-bottom: var(--space-400);
+    }
+    &__profile-img {
+        border-radius: 50%;
+    }
+    &__joined-text {
+        @include m.font-style("Montserrat-Medium", var(--text-300), var(--clr-primary-100));
+        font-style: italic;
+        margin-bottom: var(--space-300);
+    }
+    &__followers-text {
+        @include m.font-style("Montserrat-Light", var(--text-250));
+        margin-bottom: var(--space-700);
+    }
+    &__highlights {
+        &-container {
+            text-align: right;
+        }
+        margin-bottom: var(--space-400);
+        color: var(--clr-primary-100);
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 1px;
+            bottom: -12px;
+            left: 0;
+            background-color: var(--clr-primary-100);
+        }
+        &-list {
+            font-style: italic;
+        }
+        &-item {
+            padding-block: var(--space-250);
+            transition: 0.4s ease-in-out;
+            position: relative;
+            font-size: var(--text-350);
+            p {
+                display: inline;
+                overflow: hidden;
+            }
+            &:first-child {
+                display: none;
+            }
+            &:hover {
+                transform: scale(1.15) translateX(-20px);
+                cursor: pointer;
+                &::after {
+                    opacity: 1;
+                }
+            }
+            &::after {
+                font-style: normal;
+                font-size: var(--text-500);
+                color: var(--clr-primary-100);
+                opacity: 0;
+                content: "\e923";
+                font-family: 'icomoon';
+                position: absolute;
+                top: 3px;
+                transition: opacity 0.4s ease-in-out;
+                transform: rotate(180deg);
+            }
+            span {
+                color: var(--clr-primary-100);
+            }
+        }
+    }
+}

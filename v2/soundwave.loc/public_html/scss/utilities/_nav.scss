@@ -1,0 +1,54 @@
+@use "../abstract/mixins" as m;
+@use "../abstract/colors" as c;
+
+.nav {
+    @include m.font-style("Montserrat-SemiBold", var(--text-350));
+    @include m.d-flex($jc: space-between, $ai: center);
+    width: 95%;
+    margin-inline: auto;
+    margin-bottom: var(--space-700);
+    padding-top: var(--space-400);
+    &__list {
+        @include m.d-flex($g: 2rem);
+    }
+    &__item {
+        position: relative;
+        &:hover .nav__link::after {
+            width: 100%;
+        }
+    }
+    &__link {
+        @include m.d-flex($ai: center, $g: var(--space-600));
+        padding: 1rem;
+        color: white;
+        line-height: 1;
+        text-transform: uppercase;
+        text-shadow: 0 4px 4px var(--clr-gray-900);
+        border-radius: 10px;
+        &:not(:last-child)::after {
+            content: "";
+            transition: width 700ms ease;
+            display: block;
+            position: absolute;
+            z-index: 9999;
+            width: 0;
+            height: 0.25rem;
+            background-color: var(--clr-primary-100);
+            bottom: 0.5em;
+            left: 0;
+        }
+        &--button {
+            padding-inline: var(--space-500);
+            color: var(--clr-primary-100);
+            border: 2px solid var(--clr-primary-100);
+            transition: background-color 0.3s ease-out;
+            &:hover {
+                background-color: var(--clr-primary-700);
+            }
+        }
+    }
+}
+
+.icon-menu {
+    font-size: var(--text-400)
+}

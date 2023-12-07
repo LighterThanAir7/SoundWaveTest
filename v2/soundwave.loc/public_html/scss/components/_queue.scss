@@ -1,0 +1,102 @@
+@use '../abstract/mixins' as m;
+@use "../abstract/colors" as c;
+
+.player-queue {
+    background-color: var(--clr-gray-800);
+    position: absolute;
+    content: '';
+    left: 100%;
+    top: -1px;
+    border-radius: 8px;
+    border: 1px solid var(--clr-primary-300);
+    transition: 1s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    &.show {
+        visibility: visible;
+        opacity: 1;
+    }
+    &:hover {
+        box-shadow: 0 0 15px 3px var(--clr-primary-300);
+    }
+    &__header {
+        @include m.d-flex($jc: space-between, $ai: center);
+        padding: var(--space-150) var(--space-250) 0;
+        margin-bottom: var(--space-150);
+        width: 100%;
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            transform: translateY(25px);
+            height: 1px;
+            width: 100%;
+            background-color: var(--clr-primary-100);
+        }
+        i:hover {
+            cursor: pointer;
+        }
+    }
+    &__title {
+        @include m.font-style("Montserrat-SemiBold", var(--text-300), var(--clr-primary-100));
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+    }
+    &__artwork-img {
+        width: 54px;
+        height: 54px;
+        border-radius: 4px;
+    }
+    &__list {
+        width: max-content;
+        height: 470px;
+        @include m.d-flex($d: column);
+        scroll-behavior: smooth;
+        overflow-y: scroll;
+        scrollbar-width: thin;
+        scrollbar-color: var(--clr-primary-400);
+        ::-webkit-scrollbar {
+            width: 2px;
+        }
+        // Prilagodi za Chrome i ostale browsere
+    }
+    &__item {
+        @include m.d-flex($ai: center, $g: var(--space-350));
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        width: 100%;
+        padding-block: var(--space-150);
+        transition: 0.4s ease-in-out;
+        cursor: pointer;
+        padding-inline: var(--space-250);
+        &:hover {
+            background-color: var(--clr-primary-900);
+        }
+        &.playing {
+            background-color: var(--clr-primary-700);
+        }
+    }
+    &__song-info {
+        @include m.d-flex($d: column);
+        width: 100%;
+    }
+    &__song-name {
+        @include m.font-style("Montserrat-Medium", var(--text-250), var(--clr-white));
+        white-space: nowrap;
+        margin-bottom: var(--space-250);
+    }
+    &__artist {
+        @include m.font-style("Montserrat-Medium", var(--text-200), var(--clr-white-600));
+        white-space: nowrap;
+    }
+    &__time {
+
+    }
+    .player-queue__item i {
+        flex-shrink: 0;
+        &:hover {
+            background-color: unset !important;
+            color: unset !important;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@use '../abstract/mixins' as m;
+
+.brand-values {
+    &-container {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        margin: var(--space-900) auto;
+        gap: var(--space-900);
+    }
+    &__row {
+        @include m.d-flex($jc: space-between, $ai: center, $g: var(--space-900));
+        width: 100%;
+    }
+    position: relative;
+    width: 50%;
+    color: var(--clr-white);
+    &__number {
+        position: absolute;
+        top: -50px;
+        left: -70px;
+        font-family: "AvenirLTStd-Black", serif;
+        font-size: 13rem;
+        color: transparent;
+        -webkit-text-stroke-color: var(--clr-white);
+        -webkit-text-stroke-width: 3px;
+        opacity: 0.3;
+    }
+    &__title {
+        @include m.font-style('Montserrat-Bold', var(--text-700));
+        margin-bottom: var(--space-350);
+    }
+    &__desc {
+        @include m.font-style('Montserrat-Regular', var(--text-350));
+        line-height: var(--text-400);
+        margin-bottom: 48px;
+        width: 90%;
+    }
+    img {
+        border-radius: 1rem;
+    }
+}

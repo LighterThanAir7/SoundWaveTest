@@ -1,0 +1,31 @@
+@use "../abstract/mixins" as m;
+
+.container {
+    @include m.d-flex($d: column);
+    width: 85%;
+    margin: 0 auto;
+    &--70 {
+        width: 70%;
+    }
+}
+
+.row {
+    @include m.d-flex($ai: center);
+}
+
+.col {
+    @include m.d-flex($d: column);
+}
+
+.row {
+    @include m.d-flex($ai: center);
+}
+
+.col {
+    @include m.d-flex($d: column);
+}
+
+.container__row {
+    @include m.d-flex($jc: space-between, $ai: center);
+    width: 100%;
+}

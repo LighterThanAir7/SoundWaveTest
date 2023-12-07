@@ -1,0 +1,89 @@
+@function opposite-color($color) {
+    // Calculate the opposite hue by adding 180 degrees
+    $oppositeHue: (hue($color) + 220) % 360;
+    // Create the opposite color with the new hue
+    $oppositeColor: hsl($oppositeHue, saturation($color), lightness($color));
+    @return $oppositeColor;
+}
+
+$primary: hsl(168, 100%, 50%); // hsl(168, 100%, 50%);
+$secondary: opposite-color($primary);
+
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+
+$colors: (
+    primary: (
+        100: $primary,
+        200: darken($primary, 10%),
+        300: darken($primary, 15%),
+        400: darken($primary, 20%),
+        500: darken($primary, 25%),
+        600: darken($primary, 30%),
+        700: darken($primary, 35%),
+        800: darken($primary, 40%),
+        900: darken($primary, 45%),
+    ),
+    secondary: (
+        100: $secondary,
+        200: darken($secondary, 10%),
+        300: darken($secondary, 15%),
+        400: darken($secondary, 20%),
+        500: darken($secondary, 25%),
+        600: darken($secondary, 30%),
+        700: darken($secondary, 35%),
+        800: darken($secondary, 40%),
+        900: darken($secondary, 45%),
+    ),
+    gray: (
+        100: hsl(0, 0%, 55%),
+        200: hsl(0, 0%, 48%),
+        300: hsl(0, 0%, 41%),
+        400: hsl(0, 0%, 35%),
+        500: hsl(0, 0%, 27%),
+        600: hsl(0, 0%, 21%),
+        700: hsl(0, 0%, 14%),
+        800: hsl(0, 0%, 7%),
+        900: hsl(240, 67%, 2%),
+    ),
+    white: (
+        100: hsl(0, 0%, 95%),
+        200: hsl(0, 0%, 90%),
+        300: hsl(0, 0%, 85%),
+        400: hsl(0, 0%, 80%),
+        500: hsl(0, 0%, 75%),
+        600: hsl(0, 0%, 70%),
+        700: hsl(0, 0%, 65%),
+        800: hsl(0, 0%, 60%),
+    ),
+    accent: (
+        lavanda: hsl(248, 100%, 50%),
+        neon-blue: hsl(241, 100%, 50%),
+        deep-sky-blue: hsl(198, 100%, 50%),
+        baby-blue: hsl(191, 100%, 50%),
+        mint: hsl(168, 100%, 50%),
+        spring-green: hsl(156, 100%, 50%),
+        lemon: hsl(61, 100%, 50%),
+        yellow-orange: hsl(32, 100%, 50%),
+        burnt-orange: hsl(14, 100%, 50%),
+        bittersweet: hsl(0, 100%, 50%),
+        neon-pink: hsl(331, 100%, 50%),
+        heliotrope: hsl(277, 100%, 50%),
+        mauve: hsl(277, 100%, 50%),
+        white-smoke: hsl(0, 0%, 50%)
+    ),
+);
+
+$gradients: (
+    decorative-line: (
+        blue: linear-gradient(
+            to left,
+            hsla(180, 100%, 72%, 0.8) 0%,
+            hsla(180, 100%, 72%, 0) 100%),
+        orange: linear-gradient(
+            90deg,
+            hsl(42, 89%, 56%) 0%,
+            hsl(28, 89%, 54%) 49.55%,
+            hsl(336, 49%, 20%) 100%),
+    )
+);

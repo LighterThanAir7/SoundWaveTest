@@ -1,0 +1,12 @@
+@use 'mixins' as m;
+
+@include m.font-face('Montserrat-ExtraLight', '../fonts/Montserrat-ExtraLight.ttf', 'truetype');
+@include m.font-face('Montserrat-Thin', '../fonts/Montserrat-Thin.ttf', 'truetype');
+@include m.font-face('Montserrat-Light', '../fonts/Montserrat-Light.ttf', 'truetype');
+@include m.font-face('Montserrat-Regular', '../fonts/Montserrat-Regular.ttf', 'truetype');
+@include m.font-face('Montserrat-Medium', '../fonts/Montserrat-Medium.ttf', 'truetype');
+@include m.font-face('Montserrat-SemiBold', '../fonts/Montserrat-SemiBold.ttf', 'truetype');
+@include m.font-face('Montserrat-Bold', '../fonts/Montserrat-Bold.ttf', 'truetype');
+@include m.font-face('Montserrat-ExtraBold', '../fonts/Montserrat-ExtraBold.ttf', 'truetype');
+@include m.font-face('Montserrat-Black', '../fonts/Montserrat-Black.ttf', 'truetype');
+@include m.font-face('AvenirLTStd-Black', '../fonts/AvenirLTStd-Black.ttf', 'truetype');

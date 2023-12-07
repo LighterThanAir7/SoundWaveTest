@@ -1,0 +1,82 @@
+@use '../abstract/mixins' as m;
+
+.carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 5) - 25px);
+    gap: var(--space-600);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    &__card {
+        border-radius: 8px;
+        cursor: pointer;
+        scroll-snap-align: start;
+
+    }
+    &__img {
+        margin-bottom: var(--space-300);
+        position: relative;
+        &:hover img {
+            filter: brightness(0.5);
+        }
+        img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: 300ms ease-in-out;
+        }
+        .icon-centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: var(--text-400);
+            padding: var(--space-200);
+            background-color: var(--clr-gray-500);
+            border-radius: 50%;
+            transition: 300ms ease-in-out;
+            &:hover {
+                color: var(--clr-primary-100);
+                background-color: var(--clr-gray-600);
+            }
+            &:focus {
+                color: var(--clr-primary-500);
+            }
+        }
+    }
+    &__song-name {
+        @include m.font-style("Montserrat-Regular", var(--text-300));
+        margin-bottom: var(--space-300);
+    }
+    &__artist {
+        @include m.font-style("Montserrat-Regular", var(--text-250), var(--clr-primary-100));
+        margin-bottom: var(--space-200);
+    }
+    &__released-on {
+        @include m.font-style("Montserrat-Regular", var(--text-200), var(--clr-white-500));
+    }
+    &__p {
+        @include m.font-style("Montserrat-Light", var(--text-250));
+        //white-space: nowrap;
+        &--centered {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            @include m.font-style("Montserrat-Medium", var(--text-300));
+        }
+    }
+    &.dragging {
+        scroll-snap-type: none;
+        scroll-behavior: auto;
+    }
+    &.dragging .carousel__card {
+        cursor: grab;
+        user-select: none;
+    }
+}

@@ -1,0 +1,127 @@
+.search-bar {
+    background-color: var(--bg-body);
+    border-bottom: 1px solid #747C92;
+    width: calc(100vw - 290px);
+    height: 62px;
+    position: fixed;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 3rem;
+    box-shadow: inset 0 0 250px 5px rgb(1, 210, 189, 0.15);
+}
+
+.search-bar__narrow__logo {
+    display: none;
+}
+
+.search-bar__left,
+.search-bar__right {
+    position: relative;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.search-bar__left__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search__bar--text {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    width: 45vw;
+    background-color: rgb(157, 253, 255, 0.1);
+    padding: 0.5rem;
+    border-radius: 8px;
+    /*font-style: italic;*/
+}
+
+.search-bar__history {
+    position: absolute;
+    top: 60px;
+    background-color: #2F2F2F;
+    padding: 1em 0.5em 1em 0.5em;
+    width: 900px;
+    border-radius: 8px;
+    opacity: 0;
+    display: none;
+    z-index: 999999;
+}
+
+.search-bar__history--item,
+.search-bar__history--title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-bar__history--item {
+    padding: 0.5rem 1.75rem 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.search-bar__history--item:hover {
+    background-color: rgba(88,91,84,0.73);
+    color: var(--clr-accent-blue);
+    cursor: pointer;
+}
+
+.search-bar__history--title {
+    padding-right: 0.5rem;
+}
+
+.search-bar__history--title__text {
+    font-size: 22px;
+    font-weight: 600;
+    padding-left: 1rem;
+}
+
+.search-bar__history--clear__text {
+    color: rgb(255, 255, 255, 0.6);
+    padding: 0.25rem 0.75rem;
+}
+
+.search-bar__history--clear__text:hover {
+    background-color: #2A4444;
+    color: var(--clr-accent-blue);
+    border-radius: 0.5rem;
+}
+
+.search-bar__history--title,
+.search-bar__history--item:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+.search__bar--text:focus + .search-bar__history {
+    display: block;
+    opacity: 1;
+}
+
+.account__icon {
+    border-radius: 50%;
+}
+
+.sidebar__focus:hover .sidebar {
+    display: flex;
+}
+
+.sidebar__focus {
+    display: none;
+}
+
+@media screen and (max-width: 1360px) {
+    .search-bar__history {
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .search-bar__history {
+        width: 90vw;
+    }
+}

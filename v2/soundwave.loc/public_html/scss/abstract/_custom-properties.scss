@@ -1,0 +1,72 @@
+@use '../abstract/mixins' as m;
+@use 'colors' as *;
+@use 'typography' as *;
+@use 'spacing' as*;
+@use 'fonts' as *;
+@use 'border' as *;
+
+:root {
+
+    /* colors */
+    --clr-white: #{$white};
+    --clr-black: #{$black};
+
+    @each $color, $shades in $colors {
+        @each $shade, $value in $shades {
+            --clr-#{$color}-#{$shade}: #{$value};
+        }
+    }
+
+    /* gradients */
+    @each $gradient, $types in $gradients {
+        @each $type, $value in $types {
+            --gradient-#{$gradient}-#{$type}: #{$value}
+        }
+    }
+
+    /* text types */
+    @each $text-type, $types in $typography {
+        @each $size, $value in $types {
+            --#{$text-type}-#{$size}: #{$value};
+        }
+    }
+
+    /* spacing */
+    @each $spacing-type, $types in $spacings {
+        @each $space, $value in $types {
+            --#{$spacing-type}-#{$space}: #{$value};
+        }
+    }
+
+    /* border-radius */
+    @each $border-type, $types in $borders {
+        @each $border-radius, $value in $types {
+            --#{$border-type}-#{$border-radius}: #{$value};
+        }
+    }
+
+    --dropdown-item-height: 0;
+    --text-shadow-hard: 0 4px 4px var(--clr-gray-900);
+}
+
+
+
+h1 {
+    @include m.font-style("Montserrat-SemiBold", var(--text-600));
+    margin-bottom: var(--space-400)
+}
+
+h2 {
+    @include m.font-style("Montserrat-Medium", var(--text-500));
+    letter-spacing: 0.1rem;
+    margin-bottom: var(--space-400)
+}
+
+h3 {
+    @include m.font-style("Montserrat-Medium", var(--text-400));
+}
+
+h4 {
+    @include m.font-style("Montserrat-Regular", var(--text-350));
+    margin-bottom: var(--space-500);
+}

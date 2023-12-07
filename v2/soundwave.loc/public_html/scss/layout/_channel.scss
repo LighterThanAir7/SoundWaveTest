@@ -1,0 +1,126 @@
+@use '../abstract/mixins' as m;
+
+.channel {
+    max-width: 1440px;
+    width: 100%;
+    box-sizing: content-box;
+    padding-top: var(--space-700);
+    &__section {
+        width: 100%;
+        margin-bottom: var(--space-900);
+        &-arrows {
+            @include m.d-flex($ai: center, $g: var(--space-400));
+            font-size: var(--text-350);
+            i {
+                padding: 8px;
+                border-radius: 50%;
+                transition: background-color 300ms ease-in-out;
+                &:hover {
+                    background-color: var(--clr-gray-500);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    &__container {
+        @include m.d-flex($jc: space-between);
+        margin-bottom: var(--space-450);
+    }
+    &__title {
+        @include m.d-flex($ai: center, $g: var(--space-400));
+        transition: color 400ms ease-in-out;
+        &:hover {
+            color: var(--clr-primary-100);
+            cursor: pointer;
+            i {
+                transform: translateX(30px) rotate(180deg);
+            }
+        }
+        i {
+            transition: 400ms ease-in-out;
+            display: inline-block;
+            font-size: var(--text-350);
+        }
+    }
+    &__desc {
+        margin-bottom: var(--space-600);
+    }
+    &__subtitle {
+        @include m.d-flex($jc: space-between);
+        margin-bottom: var(--space-450);
+    }
+    &__container {
+        @include m.d-flex($jc: space-between);
+    }
+}
+
+.vibe {
+    &__list {
+        @include m.d-flex($jc: space-between, $g: var(--space-600));
+        flex-wrap: wrap;
+    }
+    &__item {
+        @include m.d-flex($d: column, $ai: center, $g: var(--space-400));
+        &:hover {
+            cursor: pointer;
+            .vibe__name {
+                transform: translateY(5px) scale(1.25);
+            }
+        }
+        &:first-child:hover .vibe__icon {
+            background-color: #3E1429;
+            color: var(--clr-secondary-100);
+        }
+        &:nth-child(2):hover .vibe__icon {
+            background-color: #194F24;
+            color: #3FFE61;
+        }
+        &:nth-child(3):hover .vibe__icon {
+            background-color: #593121;
+            color: #F95A26;
+        }
+        &:nth-child(4):hover .vibe__icon {
+            background-color: #5A1919;
+            color: #F90504;
+        }
+        &:nth-child(5):hover .vibe__icon {
+            background-color: #303D14;
+            color: #B4CF36;
+        }
+        &:nth-child(6):hover .vibe__icon {
+            background-color: #3D1855;
+            color: #DCA5FD;
+        }
+        &:nth-child(7):hover .vibe__icon {
+            background-color: #073A39;
+            color: #01FEFD;
+        }
+        &:last-child:hover .vibe__icon {
+            background-color: #4E3E17;
+            color: #F39B09;
+        }
+    }
+    &__icon {
+        background-color: var(--clr-gray-700);
+        transition: 300ms ease-in-out;
+        color: var(--clr-primary-100);
+        font-size: var(--text-700);
+        padding: 30px;
+        border-radius: 50%;
+    }
+    &__name {
+        @include m.font-style("Montserrat-Light", var(--text-300));
+        transition: 300ms ease-in-out;
+    }
+}
+
+#vibe {
+    h3 {
+        margin-bottom: var(--space-250);
+    }
+}
+
+.season__img {
+    width: 50%;
+    border-radius: var(--rounded-600);
+}

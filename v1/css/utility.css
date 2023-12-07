@@ -1,0 +1,57 @@
+/* -------------- Utility Classess -------------- */
+
+.text-shadow {
+    text-shadow: var(--text-shadow-hard);
+}
+
+.text-shadow-low {
+    text-shadow: var(--text-shadow-low);
+}
+
+.accent--blue {
+    color: var(--clr-accent-blue);
+}
+
+.accent-pink {
+    color: var(--clr-accent-pink);
+}
+
+
+.fw-800 {
+    font-weight: 800;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.rotate180 {
+    transform: rotate(180deg);
+}
+
+.transition-quick {
+    transition: var(--transition-quick);
+    height: 35px;
+    width: 35px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-margin-bot {
+    margin-bottom: var(--section-margin-bot);
+}
+
+.border-radius-50 {
+    border-radius: 50%;
+}
+
+.opacity-1 {
+    opacity: 1;
+}
+

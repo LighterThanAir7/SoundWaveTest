@@ -1,0 +1,12 @@
+/*####################################################*/
+/* -------------- START - Main Content -------------- */
+
+@media screen and (max-width: 664px) {
+    .podcasts__top__picture {
+        display: none;
+    }
+    .podcasts__desc {
+        width: 100%;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,104 @@
+/*####################################################*/
+/* -------------- START - Main Content -------------- */
+
+.vibe-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 0.75rem;
+}
+
+.vibe-item span {
+    transition: var(--transition-300-ease-in-out);
+}
+
+.vibe-item img:nth-of-type(2) {
+    transform: translateY(-181px);
+    z-index: -1;
+}
+
+.vibe-item img:first-of-type:hover {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.vibe-item img:first-of-type {
+    opacity: 1;
+    transition: var(--transition-300-ease-in-out);
+}
+
+.vibe-item:hover span {
+    transform: translateY(0.5rem) scale(1.25);
+}
+
+#music__made-for-you .section__item span {
+    padding-top: 0.75rem;
+    font-size: 0.875rem;
+}
+
+#music__you-might-love .section__item--centered img {
+    border-radius: 50%;
+}
+
+#music__summer-is-here .section__item,
+#music__summer-playlists .section__item {
+    max-width: unset;
+}
+
+#music__summer-is-here  .section__item img {
+    width: 680px;
+}
+
+#music__summer-playlists .section__item img {
+    width: 320px;
+}
+
+.release-date {
+    font-size: 0.8125rem;
+}
+
+.artist {
+    padding: 8px 0 2px 0;
+    font-size: 14px;
+}
+
+.you-might-love-item__artist {
+    padding: 12px 0 4px 0;
+    font-size: 1rem;
+}
+
+.you-might-love-item__fans {
+    font-size: 0.8125rem;
+}
+
+.item-name {
+    padding-top: 0.75rem;
+    font-size: 1rem;
+}
+
+.container--height {
+    height: 185px;
+}
+
+.container--height-240px {
+    height: 330px;
+}
+
+.padding--modifier {
+    padding-bottom: 30px;
+}
+
+.vibe__section__container {
+    display: flex;
+    padding-bottom: 30px;
+    gap: 1rem;
+}
+
+.jc-space-between {
+    justify-content: space-between;
+}
+
+.summer__is__here__modifier img {
+    border-radius: 16px;
+}

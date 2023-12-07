@@ -1,0 +1,23 @@
+@use '../abstract/mixins' as m;
+
+.auto__scroll {
+    overflow: hidden;
+    width: 100%;
+    padding-block: var(--space-800);
+    &__text {
+        @include m.font-style("Montserrat-Bold", var(--text-900), transparent);
+        white-space: nowrap;
+        animation: LeftToRight 60s infinite linear;
+        text-transform: uppercase;
+        -webkit-text-stroke: 3px var(--clr-gray-200);
+    }
+}
+
+@keyframes  LeftToRight {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(25%);
+    }
+}

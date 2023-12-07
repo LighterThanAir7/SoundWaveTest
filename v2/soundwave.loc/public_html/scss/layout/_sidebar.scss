@@ -1,0 +1,273 @@
+@use '../abstract/mixins' as m;
+@use "../abstract/colors" as c;
+
+.sidebar {
+    @include m.d-flex($d: column, $jc: space-between);
+    border-right: 1px solid var(--clr-primary-300);
+    width: 300px; /* 15.625% */
+    height: 100vh;
+    position: fixed;
+    z-index: 3;
+    box-shadow: inset 0 0 250px 2px var(--clr-primary-900);
+    padding-block: var(--space-450);
+    padding-inline: var(--space-400);
+    transition: 1s ease-in-out;
+    &__logo {
+        @include m.d-flex($d: column, $ai: center);
+        font-size: var(--text-350);
+        margin-bottom: var(--space-600);
+        transition: 0.25s ease-out;
+        &:hover {
+            color: var(--clr-primary-100);
+            text-shadow: 0 0 10px var(--clr-primary-400);
+        }
+        i {
+            font-size: var(--text-800);
+            margin-bottom: var(--space-100);
+        }
+    }
+    &__list {
+        @include m.d-flex($d: column, $g: var(--space-150));
+        padding-inline: var(--space-400);
+        margin-bottom: var(--space-600);
+    }
+    &__item {
+        @include m.d-flex($ai: center);
+        padding: var(--space-250) var(--space-400);
+        font-size: var(--text-350);
+        position: relative;
+        overflow: hidden;
+        color: var(--clr-white-300);
+        transition: 0.25s ease-in;
+        border-radius: var(--text-350);
+        &:hover {
+            cursor: pointer;
+            color: white;
+            box-shadow: 0 0 32px 1px var(--clr-primary-900);
+        }
+        &--active {
+            color: var(--clr-primary-100);
+            text-shadow: 0 0 10px var(--clr-primary-400);
+            &:hover {
+                color: white;
+            }
+        }
+        i {
+            font-size: var(--text-450);
+            margin-right: var(--space-200);
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    var(--clr-primary-900) 0%,
+                    var(--clr-primary-800) 100%
+            );
+            opacity: 0;
+            transition: opacity 0.25s ease-out;
+        }
+        &:hover::before {
+            opacity: 1;
+        }
+    }
+    &__collapsed {
+        display: none;
+    }
+}
+
+/* -------------------------- MUSIC PLAYER --------------------------*/
+
+.player {
+    border: 1px solid var(--clr-primary-200);
+    box-shadow: 0 0 10px 3px var(--clr-primary-900);
+    padding: var(--space-250) var(--space-350) var(--space-350);
+    position: relative;
+    transition: 1s ease-out;
+    border-radius: 8px;
+    &:hover {
+        box-shadow: 0 0 15px 3px var(--clr-primary-500);
+    }
+    &__heading {
+        @include m.d-flex($ai: center, $jc: space-between);
+        margin-bottom: var(--space-250);
+    }
+    &__playing {
+        @include m.font-style("Montserrat-SemiBold", var(--text-300), var(--clr-white-400));
+        text-transform: uppercase;
+        transition: 0.25s ease-out;
+        cursor: default;
+        &:hover {
+            color: var(--clr-white-100);
+        }
+    }
+    &__top-icons {
+        font-size: var(--text-400);
+        display: flex;
+    }
+    &__artwork {
+        margin-bottom: var(--space-450);
+        img {
+            display: block;
+            border-radius: 4px;
+            transition: 0.4s ease-in-out;
+            &:hover {
+                box-shadow: 0 0 20px 1px var(--clr-primary-900);
+                cursor: pointer;
+            }
+        }
+    }
+    &__song-info {
+        width: 166px;
+        overflow: hidden;
+    }
+    &__song-title {
+        @include m.font-style("Montserrat-SemiBold", var(--text-250));
+        margin-bottom: var(--space-200);
+        transition: 0.25s ease-in-out;
+        cursor: pointer;
+        &:hover {
+            color: var(--clr-primary-100);
+        }
+        white-space: nowrap;
+    }
+    .playerOverflowAnimation {
+        animation: scrollText 20s linear infinite;
+    }
+    @keyframes scrollText {
+        0% {
+            transform: translateX(0%);
+        }
+        10% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-105%);
+        }
+    }
+    &__artist {
+        @include m.font-style("Montserrat-Medium", var(--text-200), var(--clr-white-400));
+        transition: 0.25s ease-in-out;
+        position: relative;
+        white-space: nowrap;
+        &:hover {
+            cursor: pointer;
+            color: var(--clr-primary-100);
+            &::after {
+                width: 100%;
+            }
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            height: 1px;
+            width: 0;
+            transition: 0.25s ease-in-out;
+            background-color: var(--clr-primary-100);
+        }
+    }
+    &__more-info {
+        display: flex;
+        gap: 10px;
+        i {
+            font-size: var(--text-300);
+            background-color: rgba(#7A7A7A, 0.5);
+            padding: 6px;
+            border-radius: 50%;
+            transition: 0.25s ease-in-out;
+            &:hover {
+                background-color: var(--clr-primary-700);
+                // color: var(--clr-primary-100);
+                cursor: pointer;
+            }
+        }
+    }
+    &__progress-area {
+        background-color: rgba(#999999, 0.5);
+        position: relative;
+        height: 6px;
+        margin-bottom: var(--space-200);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        &:hover {
+            box-shadow: 0 0 4px 2px var(--clr-primary-100);
+        }
+    }
+    &__progress-bar {
+        background-color: var(--clr-primary-200);
+        position: absolute;
+        height: 6px;
+        box-shadow: 0 0 5px 2px var(--clr-primary-600);
+        border-radius: 8px;
+        //transition: width 0.2s linear; kako napraviti smooth tranziciju za širinu?
+    }
+    &__time {
+        @include m.d-flex($jc: space-between);
+        @include m.font-style("Montserrat-Medium", var(--text-200), var(--clr-white-400));
+        margin-bottom: var(--space-600);
+        &-current,
+        &-duration {
+            transition: 0.3s ease-in-out;
+            cursor: default;
+            user-select: none;
+            &:hover {
+                color: var(--clr-primary-100);
+                scale: 1.1;
+            }
+        }
+    }
+    &__primary-controls {
+        @include m.d-flex($jc: space-around, $ai: center);
+        padding-inline: var(--space-150);
+        font-size: var(--text-400);
+        color: var(--clr-white-400);
+        margin-bottom: var(--space-350);
+        position: relative;
+        &-middle {
+            @include m.d-flex($ai:center, $g: var(--space-100));
+            font-size: var(--text-450);
+            color: var(--clr-white);
+            i:nth-child(2) {
+                font-size: var(--text-500);
+                height: 45px;
+                width: 45px;
+            }
+        }
+    }
+    &__bottom-controls {
+        @include m.d-flex($jc: space-around, $ai: center);
+        padding-inline: var(--space-150);
+        font-size: var(--text-400);
+        color: var(--clr-white-400);
+    }
+}
+
+.player__top-icons,
+.player__primary-controls,
+.player__bottom-controls, {
+    i {
+        @include m.d-flex($jc: center, $ai: center);
+        background-color: transparent;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        transition: 0.25s ease-out;
+        &:hover {
+            background-color: var(--clr-primary-800);
+            cursor: pointer;
+            // color: var(--clr-primary-100);
+        }
+    }
+}
+
+.player__top-icons i {
+    height: 32px;
+    width: 32px;
+}

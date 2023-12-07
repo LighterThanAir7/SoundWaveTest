@@ -1,0 +1,33 @@
+.social__facebook__icon path,
+.social__twitter__icon path,
+.social__instagram__icon path,
+.social__youtube__icon path,
+.social__tiktok__icon path {
+    fill: #D5D5D5;
+    transition: var(--transition-quick);
+}
+
+.social__facebook__icon:hover path {
+    fill: #4267B2;
+    cursor: pointer;
+}
+
+.social__twitter__icon:hover path {
+    fill: #1DA1F2;
+    cursor: pointer;
+}
+
+.social__instagram__icon:hover path {
+    fill: #C13584;
+    cursor: pointer;
+}
+
+.social__youtube__icon:hover path {
+    fill: #FF0000;
+    cursor: pointer;
+}
+
+.social__tiktok__icon:hover path {
+    fill: #ff0050;
+    cursor: pointer;
+}

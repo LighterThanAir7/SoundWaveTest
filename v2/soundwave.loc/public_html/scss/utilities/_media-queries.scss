@@ -1,0 +1,734 @@
+@use '../abstract/mixins' as m;
+
+// -------------------- NAV -------------------- //
+@media screen and (max-width: 1080px) {
+    // Miče gumb na kraju nav-a
+    .nav__item:last-child {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .nav {
+        font-size: var(--text-300);
+        width: 90%;
+        &__logo {
+            i {
+                font-size: var(--text-500);
+            }
+            span {
+                display: none;
+            }
+        }
+        &__list {
+            gap: var(--space-400);
+        }
+    }
+    .dropdown {
+        &__link {
+            font-size: var(--text-250);
+        }
+    }
+}
+
+// -------------------- FOOTER -------------------- //
+
+@media screen and (max-width: 1300px) {
+    .footer {
+        &__list {
+            width: 135px;
+        }
+        &__row {
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-750);
+        }
+        &__terms-of-use {
+            text-align: center;
+        }
+        &__links {
+            width: 100%;
+            gap: 40px;
+            font-size: var(--text-250);
+        }
+        &-quote {
+            width: 50%;
+            &__decoration {
+                margin-bottom: var(--space-400);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .footer {
+        padding-inline: var(--space-650);
+        &__terms-of-use {
+            font-size: var(--text-150);
+        }
+        &__list {
+            margin-bottom: var(--space-600);
+        }
+        &__link {
+            &::before {
+                height: 1px;
+            }
+        }
+        &-quote {
+            width: 75%;
+        }
+        &-bottom {
+            justify-content: center;
+            &__company {
+                display: none;
+            }
+            &__list {
+                width: 100%;
+                justify-content: space-evenly;
+                font-size: var(--text-250);
+            }
+        }
+    }
+    .language-picker span {
+        display: none;
+    }
+    .language-picker__menu {
+        left: -80px;
+        li {
+            padding: 10px 26px 10px 16px
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .footer {
+        padding-inline: var(--space-100);
+        &-quote {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    h3 {
+        font-size: var(--text-350);
+    }
+    .form__label {
+        padding-right: 100px;
+    }
+    .btn--base {
+        font-size: var(--text-200)
+    }
+    .footer-bottom__list li:nth-child(2) {
+        display: none;
+    }
+}
+
+// -------------------- PAGE HEADER -------------------- //
+
+@media screen and (max-width: 1400px) {
+    .page-header__container {
+        img {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 1700px) {
+    .page-header h3 {
+        font-size: var(--text-350);
+    }
+    .page-header__description {
+        width: 85%;
+        font-size: var(--text-250);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .page-header h3 {
+        font-size: var(--text-300);
+    }
+    .page-header__description {
+        width: 100%;
+        font-size: var(--text-200);
+    }
+    .page-header .icon-shuffle {
+        font-size: var(--text-400);
+    }
+}
+
+// -------------------- PAGE FAVOURITES -------------------- //
+
+@media screen and (max-width: 1600px) {
+    .favourites__header {
+        flex-direction: column;
+        gap: var(--space-800);
+    }
+    .favourites__highlights {
+        display: none;
+        &-container {
+            width: 100%;
+        }
+        &-list {
+            @include m.d-flex();
+            flex-wrap: wrap;
+        }
+        &-item {
+            &:first-child {
+                display: block;
+                box-shadow: inset 0 0 250px 5px var(--clr-primary-700);
+            }
+            font-style: normal;
+            font-size: var(--text-300);
+            padding-inline: var(--space-500);
+            border: 1px solid var(--clr-primary-800);
+            border-radius: var(--rounded-400);
+            &::after {
+                display: none;
+            }
+            &:hover {
+                transform: unset;
+                background-color: var(--clr-primary-700);
+            }
+        }
+    }
+    .favourite-tracks__released-on {
+        display: none;
+    }
+    .favourite-tracks__album {
+        width: calc(21% - var(--space-400));
+    }
+    .favourite-tracks__select {
+        width: calc(6% - var(--space-400));
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .favourites__highlights {
+        &-list {
+            @include m.d-flex($jc: center);
+            flex-wrap: wrap;
+        }
+    }
+    .favourites__profile-img {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .favourite-tracks {
+        &__item {
+            p {
+                font-size: var(--text-200);
+            }
+        }
+    }
+    .favourite-tracks__genre {
+        display: none;
+    }
+    .favourite-tracks__track-title {
+        width: calc(30% - var(--space-400));
+    }
+    .favourite-tracks__album {
+        width: calc(25% - var(--space-400));
+    }
+    .favourite-tracks__artist {
+        width: calc(23% - var(--space-400));
+    }
+    .favourite-tracks__select {
+        width: calc(9% - var(--space-400));
+    }
+}
+
+@media screen and (max-width: 1140px) {
+    .favourite-tracks__album {
+        display: none;
+    }
+    .favourite-tracks__track-title {
+        width: calc(42% - var(--space-400));
+    }
+    .favourite-tracks__artist {
+        width: calc(33% - var(--space-400));
+    }
+    .favourite-tracks__select {
+        width: calc(10% - var(--space-400));
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .favourite-tracks__select {
+        display: none;
+    }
+    .favourite-tracks__track-title {
+        width: calc(43% - var(--space-400));
+    }
+    .favourite-tracks__artist {
+        width: calc(33% - var(--space-400));
+    }
+    .favourite-tracks__artwork {
+        width: 40px;
+    }
+}
+
+
+@media screen and (max-width: 860px) {
+    .favourites__highlights {
+        &-list {
+            @include m.d-flex($jc: center);
+            flex-direction: column;
+            text-align: left;
+        }
+        &-item {
+            @include m.d-flex($jc: space-between);
+        }
+    }
+    .favourites__profile-img {
+        width: 150px;
+    }
+}
+
+
+// -------------------- CAROUSEL -------------------- //
+
+@media screen and (max-width: 1400px) {
+    .carousel {
+        &__song-name {
+            font-size: var(--text-250);
+            margin-bottom: var(--space-250);
+        }
+        &__artist {
+            font-size: var(--text-200);
+        }
+    }
+    .carousel__p {
+        font-size: var(--text-200);
+    }
+}
+
+// Odrađeno u JS-u
+
+/*@media screen and (max-width: 1600px) {
+    .carousel {
+        grid-auto-columns: calc((100% / 4) - 25px);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .carousel {
+        grid-auto-columns: calc((100% / 3) - 25px);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .carousel {
+        grid-auto-columns: calc((100% / 2) - 25px);
+    }
+    .vibe__icon {
+        font-size: var(--text-500);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .vibe__icon {
+        font-size: var(--text-400);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .carousel {
+        grid-auto-columns: 100%;
+    }
+}*/
+
+// -------------------- PAGE CONTENT -------------------- //
+
+
+@media screen and (max-width: 1000px) {
+    .page-content {
+        padding-inline: var(--space-650);
+    }
+}
+
+// -------------------- VIBE -------------------- //
+
+@media screen and (max-width: 1500px) {
+    .vibe__list {
+        justify-content: center;
+    }
+}
+
+// -------------------- HOME -------------------- //
+
+@media screen and (max-width: 1750px) {
+    .bg-main {
+        height: unset;
+    }
+    .nav {
+        margin-bottom: var(--space-900);
+    }
+    .welcome {
+        &-wrapper {
+            flex-direction: column;
+            text-align: center;
+        }
+        &__cta {
+            flex-direction: column;
+            &-text {
+                margin-right: 0;
+                margin-bottom: var(--space-650);
+                &::before {
+                    display: none;
+                }
+            }
+        }
+        & > img {
+            display: none;
+        }
+        &__music-player:first-child {
+            display: unset;
+        }
+        h1 {
+            margin-bottom: var(--space-500);
+        }
+        > p {
+            margin-bottom: var(--space-750);
+        }
+    }
+    .one-liner-container {
+        flex-direction: column;
+        & > img {
+            padding-bottom: var(--space-700);
+        }
+        p {
+            padding-bottom: var(--space-600);
+        }
+    }
+    .soundwave {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    h1 {
+        font-size: var(--text-450)
+    }
+    .welcome__description,
+    .welcome__cta-text,
+    .btn {
+        font-size: var(--text-350);
+    }
+    .one-liner {
+        font-size: var(--text-500);
+        letter-spacing: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .welcome__music-player:first-child,
+    .welcome__music-player:last-child {
+        display: none;
+    }
+    .one-liner {
+        font-size: var(--text-350);
+        letter-spacing: 0.25rem;
+        &:after {
+            top: 25px;
+        }
+    }
+}
+
+// -------------------- ABOUT  -------------------- //
+
+@media screen and (max-width: 1850px) {
+    .artwork__text {
+        &::before {
+            left: -250px
+        }
+        &::after {
+            right: -250px;
+        }
+    }
+};
+
+@media screen and (max-width: 1500px) {
+    .brand-values__number {
+        font-size: 11rem;
+    }
+    .brand-values__title {
+        font-size: var(--text-600);
+    }
+    .brand-values__desc {
+        font-size: var(--text-300);
+    }
+};
+
+@media screen and (max-width: 1280px) {
+    .brand-values__title {
+        font-size: var(--text-500);
+    }
+    .brand-values__desc {
+        font-size: var(--text-250);
+        line-height: var(--text-250);
+        width: 100%;
+    }
+    .artwork__text {
+        font-size: var(--text-400);
+    }
+    .btn {
+        font-size: var(--text-250);
+    }
+
+};
+
+@media screen and (max-width: 800px) {
+    .brand-values__number {
+        font-size: 7rem;
+        left: -40px;
+        top: -20px;
+    }
+    .brand-values-container {
+        width: 95%;
+    }
+    .brand-values {
+        width: 80%;
+    }
+    .brand-values__title {
+        font-size: var(--text-350);
+        letter-spacing: -0.1px;
+    }
+    .brand-values__desc {
+        font-size: var(--text-200);
+        line-height: var(--text-250);
+        margin-bottom: 25px;
+        width: 100%;
+    }
+    .brand-values__row {
+        flex-direction: column;
+        gap: var(--space-600);
+    }
+    .brand-values__row:nth-child(2) > .brand-values {
+        order: 0;
+    }
+    .btn {
+        font-size: var(--text-200);
+        display: block;
+    }
+    .artwork__text {
+        &::before,
+        &::after {
+            display: none;
+        }
+        width: 90%;
+        font-size: var(--text-300);
+    }
+    .artwork__carousel {
+        gap: 20px;
+        img {
+            width: 100px;
+        }
+    }
+    h4 {
+        @include m.font-style("Montserrat-Regular", var(--text-250));
+        text-align: center;
+    }
+    .auto__scroll__text {
+        font-size: var(--text-600);
+    }
+    .artwork__carousel {
+        padding-inline: var(--space-150);
+    }
+    .card__info {
+        top: 75%;
+    }
+    .card__title {
+        font-size: var(--text-300);
+    }
+    .card__text {
+        font-size: var(--text-200);
+        margin-bottom: var(--space-500);
+    }
+};
+
+@media screen and (max-width: 500px) {
+    .card__info {
+        top: 60%;
+    }
+}
+
+
+// -------------------- CHANNEL  -------------------- //
+
+@media screen and (max-width: 1300px) {
+    .channel {
+        &__title {
+            h3 {
+                font-size: var(--text-350);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #seasonal-section {
+        flex-direction: column;
+        & .season__img {
+            width: 100%;
+        }
+    }
+    .channel {
+        &__title {
+            i {
+                font-size: var(--text-300);
+            }
+            h3 {
+                font-size: var(--text-300);
+            }
+        }
+        &__section-arrows {
+            i {
+                font-size: var(--text-300);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 807px) {
+    .channel {
+        &__title {
+            i {
+                display: none;
+            }
+            h3 {
+                font-size: var(--text-250);
+            }
+        }
+        &__section-arrows i:first-child {
+            display: none;
+        }
+        &__desc {
+            font-size: var(--text-250);
+        }
+    }
+}
+
+// -------------------- PAGE MUSIC  -------------------- //
+
+
+
+@media screen and (max-width: 1000px) {
+    .vibe {
+        &__icon {
+            font-size: var(--text-500);
+            padding: var(--space-350);
+        }
+        &__name {
+            font-size: var(--text-250);
+        }
+        &__item {
+            &:hover {
+                .vibe__name {
+                    transform: translateY(4px) scale(1.10);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .vibe__icon {
+        font-size: var(--text-400);
+        padding: var(--space-300);
+    }
+}
+
+
+
+// -------------------- SIDEBAR -------------------- //
+
+/*@media screen and (max-width: 1200px) {
+    .soundwave__gif-container,
+    .searchbar {
+        width: calc(100% - 60px);
+    }
+    .soundwave__gif--left {
+        left: 60px;
+    }
+    .page-content {
+        margin-left: 60px;
+    }
+    .sidebar {
+        padding-inline: 0;
+        align-items: center;
+        width: 60px;
+        &__list {
+            padding-inline: 0;
+            align-items: center;
+        }
+        &__item {
+            padding-inline: 0;
+            i {
+                margin-right: 0;
+            }
+            span {
+                display: none;
+            }
+        }
+        &__logo {
+            i {
+                font-size: var(--text-500);
+                margin-bottom: 0;
+            }
+            span {
+                display: none;
+            }
+        }
+    }
+    .player {
+        border-radius: 0;
+        border: unset;
+        border-top: 1px solid var(--clr-primary-300);
+        height: 100%;
+        padding: 0;
+        &__container {
+            position: fixed;
+            bottom: 0;
+            height: 60px;
+            box-shadow: inset 0 0 250px 5px var(--clr-primary-800);
+            background-color: var(--clr-gray-900);
+            left: 0;
+            width: 100%;
+        }
+        &__playing {
+            display: none;
+        }
+        &__artwork {
+            margin-bottom: var(--space-450);
+            img {
+                width: 60px;
+                border-radius: 0;
+            }
+        }
+        &__heading {
+            position: absolute;
+        }
+    }
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

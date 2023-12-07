@@ -1,0 +1,155 @@
+@use '../abstract/colors' as *;
+@use '../abstract/typography' as *;
+@use '../abstract/spacing' as*;
+@use '../abstract/fonts' as *;
+@use '../abstract/border' as *;
+@use "../abstract/mixins" as m;
+
+@each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+        .text-#{$color}-#{$shade} {
+            color: var(--clr-#{$color}-#{$shade})
+        }
+        .bg-#{$color}-#{$shade} {
+            background-color: var(--clr-#{$color}-#{$shade})
+        }
+    }
+}
+
+@each $spacing-type, $types in $spacings {
+    @each $space, $value in $types {
+        .mb-#{$space} {
+            margin-bottom: var(--space-#{$space});
+        }
+        .mt-#{$space} {
+            margin-top: var(--space-#{$space});
+        }
+        .mr-#{$space} {
+            margin-right: var(--space-#{$space});
+        }
+        .ml-#{$space} {
+            margin-left: var(--space-#{$space});
+        }
+        .pb-#{$space} {
+            padding-bottom: var(--space-#{$space});
+        }
+        .pt-#{$space} {
+            padding-top: var(--space-#{$space});
+        }
+        .pr-#{$space} {
+            padding-right: var(--space-#{$space});
+        }
+        .pl-#{$space} {
+            padding-left: var(--space-#{$space});
+        }
+        .g-#{$space} {
+            gap: var(--space-#{$space});
+        }
+    }
+}
+
+@each $text-type, $types in $typography {
+    @each $size, $value in $types {
+        .text-#{$size} {
+            font-size: var(--text-#{$size});
+        }
+    }
+}
+
+@each $border-type, $types in $borders {
+    @each $border-radius, $value in $types {
+        .rounded-#{$border-radius} {
+            border-radius: var(--rounded-#{$border-radius});
+        }
+    }
+}
+
+// My Custom Classes
+
+.hidden {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flip-X {
+    transform: rotateX(180deg);
+}
+
+.flip-Y {
+    transform: rotateY(180deg);
+}
+
+.height-full {
+    height: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.order-1 {
+    order: 1;
+}
+
+.tracking-xxl {
+    letter-spacing: 0.1em;
+}
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+.border-radius {
+    border-radius: 4px;
+}
+
+.border-circle {
+    border-radius: 50% !important;
+}
+
+.z-100 {
+    z-index: 100;
+}
+
+.z-full {
+    z-index: 999;
+}
+
+.w-half {
+    width: 50%;
+}
+
+.text-white {
+    color: var(--clr-white);
+}

@@ -1,0 +1,107 @@
+@use '../abstract/mixins' as m;
+
+.favourite-tracks {
+    @include m.d-flex($ai: center);
+    border-bottom: 2px solid var(--clr-primary-100);
+    padding-bottom: var(--space-200);
+    span {
+        text-transform: uppercase;
+    }
+    &__list {
+        @include m.d-flex($d: column);
+        border-bottom: 2px solid var(--clr-primary-100);
+        font-size: var(--text-300);
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: var(--clr-primary-100) var(--clr-primary-700);
+        ::-webkit-scrollbar {
+            width: 2px;
+        }
+        height: calc(410px + (10 * var(--space-150)));
+    }
+    &__item {
+        @include m.d-flex($ai: center);
+        width: 100%;
+        margin-bottom: var(--space-200);
+        transition: 0.3s ease-in-out;
+        height: 50px;
+        p {
+            flex-shrink: 0;
+            font-size: var(--text-250);
+            position: relative;
+            overflow: hidden;
+        }
+        &:hover {
+            background-color: var(--clr-primary-800);
+            color: var(--clr-primary-100);
+            cursor: pointer;
+        }
+    }
+    &__artwork {
+        text-align: center;
+        // flex-basis: calc(4% - var(--space-400));
+        width: 50px;
+        border-radius: 4px;
+        flex-shrink: 0;
+        margin-right: var(--space-400);
+    }
+    &__track-title {
+        // flex-basis: calc(29% - var(--space-400));
+        flex-shrink: 0;
+        width: calc(25% - var(--space-400));
+        margin-right: var(--space-400);
+    }
+    &__artist {
+        // flex-basis: calc(19% - var(--space-400));
+        flex-shrink: 0;
+        width: calc(20% - var(--space-400));
+        margin-right: var(--space-400);
+    }
+    &__album {
+        // flex-basis: calc(20% - var(--space-400));
+        flex-shrink: 0;
+        width: calc(15% - var(--space-400));
+        margin-right: var(--space-400);
+    }
+    &__released-on {
+        // flex-basis: calc(7% - var(--space-400));
+        text-align: center;
+        flex-shrink: 0;
+        width: calc(8% - var(--space-400));
+        margin-right: var(--space-400);
+    }
+    &__time {
+        // flex-basis: calc(5% - var(--space-400));
+        text-align: center;
+        flex-shrink: 0;
+        width: calc(8% - var(--space-400));
+        margin-right: var(--space-400);
+    }
+    &__genre {
+        // flex-basis: calc(11% - var(--space-400));
+        flex-shrink: 0;
+        width: calc(15% - var(--space-400));
+        margin-right: var(--space-400);
+    }
+    &__select {
+        // flex-basis: calc(5% - var(--space-400));
+        flex-shrink: 0;
+        width: calc(4% - var(--space-400));
+        margin-right: var(--space-400);
+    }
+}
+
+/*
+.test-table-line::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 440px;
+    left: -10px;
+    top: 22px;
+    z-index: -1;
+    box-shadow: 1px 1px 2px 1px var(--clr-primary-100);
+    background-color: transparent;
+    filter: brightness(0.25);
+}*/

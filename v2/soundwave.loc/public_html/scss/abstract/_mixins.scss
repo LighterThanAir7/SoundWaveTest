@@ -1,0 +1,26 @@
+@mixin font-style ($ff, $size: null, $color: null) {
+    font-family: $ff, sans-serif;
+    font-size: $size;
+    color: $color;
+}
+
+@mixin d-flex($d: null, $jc: null, $ai: null, $g: null) {
+    display: flex;
+    flex-direction: $d;
+    justify-content: $jc;
+    align-items: $ai;
+    gap: $g;
+}
+
+@mixin font-face($family, $src, $format, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: "#{$family}";
+        src: url("#{$src}") format('#{$format}');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+@mixin transition($x...) {
+    transition: $x;
+}

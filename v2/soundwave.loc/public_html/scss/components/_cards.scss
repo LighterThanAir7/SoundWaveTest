@@ -1,0 +1,35 @@
+@use "../abstract/mixins" as m;
+
+.cards {
+    padding-inline: 50px;
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    padding-bottom: var(--space-800);
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+    cursor: pointer;
+    &__img {
+        border-radius: 10px;
+        transition: 300ms ease-in-out;
+    }
+    &__info {
+        position: absolute;
+        padding-inline: var(--space-500);
+        top: 60%;
+    }
+    &__title {
+        @include m.font-style("Montserrat-SemiBold", var(--text-400));
+        margin-bottom: var(--space-400);
+    }
+    &__text {
+        @include m.font-style("Montserrat-Regular", var(--text-300));
+        margin-bottom: var(--space-700);
+    }
+    &:hover &__img {
+        filter: brightness(0.75) blur(3px);
+    }
+}

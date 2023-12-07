@@ -1,0 +1,30 @@
+@use '../abstract/mixins' as m;
+@use "../abstract/colors" as c;
+
+.soundwave__gif-container {
+    width: calc(100% - 300px);
+    height: calc(100% - 51px);
+    z-index: -3;
+    position: fixed;
+    right: 0;
+    top: 51px;
+    box-shadow: inset 0 0 200px 10px var(--clr-primary-900);
+    transition: 1s ease-in-out;
+}
+
+.soundwave__gif {
+    display: none;
+    position: fixed;
+    top: 52px;
+    width: 2%;
+    height: inherit;
+}
+
+.soundwave__gif--left {
+    left: 300px;
+}
+
+.soundwave__gif--right {
+    right: 0;
+    transform: rotate(180deg);
+}

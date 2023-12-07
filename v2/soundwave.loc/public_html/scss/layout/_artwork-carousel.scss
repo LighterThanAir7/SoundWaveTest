@@ -1,0 +1,58 @@
+@use "../abstract/mixins" as m;
+
+.artwork {
+    position: relative;
+    overflow: hidden;
+    padding-bottom:  var(--space-800);
+    &__text {
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+        padding-bottom: var(--space-600);
+        text-shadow: var(--text-shadow-hard);
+        &::before {
+            position: absolute;
+            left: -75px;
+            transform: translateY(40px);
+            content: "";
+            height: 18px;
+            width: 350px;
+            background: linear-gradient(
+                -90deg,
+                #00FFFF 0%,
+                #036481 49.55%,
+                #040D3A 100%
+            );
+        }
+        &::after {
+            position: absolute;
+            right: -75px;
+            content: "";
+            height: 18px;
+            width: 350px;
+            background: linear-gradient(
+                90deg,
+                #F3B829 0%,
+                #F28121 49.55%,
+                #4C1A2E 100%
+            );
+        }
+    }
+    &__carousel {
+        @include m.d-flex($ai: center, $jc: center, $g: var(--space-700));
+        flex-wrap: wrap;
+        padding-inline: 30px;
+        gap: 40px;
+        img {
+            width: 190px;
+            border-radius: 10px;
+            transition: 300ms ease-in-out;
+            border: 4px solid transparent;
+            &:hover {
+                border: 4px solid var(--clr-gray-300);
+                filter: brightness(70%);
+                cursor: pointer;
+            }
+        }
+    }
+}

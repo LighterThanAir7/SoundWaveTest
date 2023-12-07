@@ -1,0 +1,174 @@
+@use '../abstract/mixins' as m;
+@use '../abstract/colors' as c;
+
+.add-to-playlist {
+    width: 300px;
+    background-color: var(--clr-gray-800);
+    position: absolute;
+    content: '';
+    left: 100%;
+    top: -1px;
+    border-radius: 8px;
+    padding-top: var(--space-300);
+    border: 1px solid var(--clr-primary-100);
+    overflow: hidden;
+    transition: 1s cubic-bezier(0.4, 0, 0.2, 1);
+    visibility: hidden;
+    opacity: 0;
+    &:hover {
+        box-shadow: 0 0 15px 3px var(--clr-primary-300);
+    }
+    &__header {
+        @include m.d-flex($jc: space-between, $ai: center);
+        margin-bottom: var(--space-250);
+        padding-inline: var(--space-350);
+        width: 100%;
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            transform: translateY(24px);
+            height: 1px;
+            width: 100%;
+            background-color: var(--clr-primary-100);
+        }
+        i:hover {
+            cursor: pointer;
+        }
+    }
+    & .icon-plus {
+        font-size: var(--text-400);
+    }
+    &__list {
+        @include m.d-flex($d: column);
+        overflow-y: scroll;
+        scrollbar-width: thin;
+        scrollbar-color: var(--clr-primary-100) var(--clr-primary-400);
+        ::-webkit-scrollbar {
+            width: 2px;
+        }
+        height: 300px;
+    }
+    &__item {
+        @include m.font-style("Montserrat-Regular", var(--text-250));
+        @include m.d-flex($ai: center);
+        transition: 0.25s ease-in-out;
+        padding-left: var(--space-400);
+        height: 42px;
+        &:hover {
+            background-color: var(--clr-primary-900);
+            cursor: pointer;
+            // color: var(--clr-primary-100);
+        }
+        i {
+            margin-right: var(--space-400);
+        }
+    }
+    &__title {
+        @include m.font-style("Montserrat-SemiBold", var(--text-300), var(--clr-primary-100));
+    }
+    &__bottom-button {
+        @include m.d-flex($jc: center, $ai: center);
+        @include m.font-style("Montserrat-SemiBold", var(--text-300));
+        border-top: 1px solid var(--clr-gray-400);
+        background-color: var(--clr-gray-600);
+        padding: var(--space-350);
+        transition: 0.3s ease-in-out;
+        &:hover {
+            background-color: var(--clr-primary-100);
+            color: var(--clr-gray-800);
+            cursor: pointer;
+        }
+    }
+}
+
+#new-playlist {
+    li {
+        transition: 0.3s ease-in-out;
+        font-size: var(--text-250);
+        &:hover {
+            color: var(--clr-primary-100);
+            cursor: pointer;
+            i {
+                background-color: var(--clr-primary-600);
+            }
+        }
+    }
+    i {
+        transition: 0.3s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: var(--clr-primary-800);
+    }
+}
+
+.add-to-playlist__list i {
+    margin-right: var(--space-350);
+}
+
+.add-to-playlist__item {
+
+}
+
+.add-to-playlist__header i {
+    margin-right: 0;
+    border-radius: 50%;
+    @include m.d-flex($jc: center, $ai: center);
+    width: 32px;
+    height: 32px;
+    transition: 0.3s ease-in-out;
+    background-color: var(--clr-primary-900);
+    &:hover {
+        background-color: var(--clr-primary-700);
+        //color: var(--clr-primary-100);
+    }
+}
+
+.add-to-playlist.show,
+.new-playlist.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    min-height: 40px;
+    transition: 0.3s ease-in-out;
+    font-size: var(--text-250);
+    width: 100%;
+    &:hover {
+        color: var(--clr-primary-100);
+    }
+}
+
+.custom-checkbox span:last-child {
+    color: var(--clr-white);
+}
+.hidden-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkbox-icon::before {
+    content: "\e92d";
+    font-family: "icomoon";
+    display: inline-block;
+}
+
+.hidden-checkbox:checked + .checkbox-icon::before {
+    content: "\e92e";
+    color: var(--clr-primary-100);
+}
+
+.hidden-checkbox:checked ~ .checkbox-icon {
+    color: var(--clr-primary-100);
+}

@@ -1,0 +1,33 @@
+@use '../abstract/mixins' as m;
+
+.shuffle-state {
+    background-color: var(--clr-primary-700);
+    border: 1px solid var(--clr-primary-100);
+    border-radius: 12px;
+    padding: var(--space-200) var(--space-400);
+    position: absolute;
+    top: -70%;
+    @include m.font-style('Montserrat-SemiBold', var(--text-200), var(--clr-white));
+    cursor: default;
+    opacity: 0;
+    pointer-events: none;
+
+    &__text {
+        color: var(--clr-primary-100);
+    }
+}
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

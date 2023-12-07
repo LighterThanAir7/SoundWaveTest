@@ -1,0 +1,73 @@
+@use '../abstract/mixins' as m;
+
+.text-input {
+    background-color: var(--clr-gray-900);
+    border: 1px solid var(--clr-gray-600);
+    border-radius: 8px;
+    width: 100%;
+    padding: var(--space-300);
+    box-sizing: border-box;
+    transition: 0.3s ease-in-out;
+    &:hover {
+        border: 1px solid var(--clr-gray-100);
+    }
+    &:focus {
+        border: 1px solid var(--clr-primary-100);
+        background-color: var(--clr-primary-800);
+    }
+}
+
+.browse-picture {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(227deg, rgba(0, 255, 204, 0.11) 0%, rgba(10, 10, 10, 0.00) 100%);
+    border-radius: 8px;
+    border: 1px solid var(--clr-gray-600);
+    position: relative;
+    transition: 0.3s ease-in-out;
+    &:hover {
+        border: 1px solid var(--clr-primary-100);
+    }
+    &__inner {
+        left: 50%;
+        top: 50%;
+        font-size: var(--text-400);
+        background-color: var(--clr-primary-900);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        transition: 0.3s ease-in-out;
+        &:hover {
+            background-color: var(--clr-primary-800);
+            cursor: pointer;
+        }
+    }
+}
+
+.textarea {
+    @include m.font-style("Montserrat-Regular", var(--text-200));
+    background-color: var(--clr-gray-900);
+    border: 1px solid var(--clr-gray-600);
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: var(--space-300);
+    margin-bottom: var(--space-400);
+    width: 100%;
+    min-height: 60px;
+    word-wrap: break-word;
+    resize: none;
+    transition: 0.3s ease-in-out;
+    &:hover {
+        border: 1px solid var(--clr-gray-100);
+    }
+    &:focus {
+        border: 1px solid var(--clr-primary-100);
+        background-color: var(--clr-primary-700);
+    }
+}
+
