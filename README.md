@@ -16,6 +16,8 @@ I also did a video presentation on the Case Study which you can find [here](http
 - added working music player
 - started working on backend
 
+I also created a new presentation for the project with some **key new featues** that you can check out [here](SoundWave%20Project.pdf).
+
 ## Note
 The project is still in development and I'm planning to switch PHP components and make them with React.
 Also I will try to create an actual recommendation system depending on what the user preferences are and so much more...
