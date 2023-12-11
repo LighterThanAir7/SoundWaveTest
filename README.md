@@ -1,5 +1,5 @@
 # SoundWave
-Music streaming platform made as a college project. It was developed in multiple stages, reeconstructed from scratch two times as I expanded my knowledge and experience in web development.
+Music streaming platform made as a college project. It was developed in multiple stages, reconstructed from scratch two times as I expanded my knowledge and experience in web development.
 It's far from a finished product but the idea was fully mine. 
 
 Project started as a brief idea which I expanded on in my [Case Study](SoundWave%20-%20Case%20Study.pdf) and [Figma](https://www.figma.com/file/r17i8EyIzbl08ecTmZdIOM/SoundWave-Projekt?type=design&node-id=30-90&mode=design)
